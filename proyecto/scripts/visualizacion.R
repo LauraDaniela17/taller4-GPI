@@ -103,7 +103,7 @@ save_table_png <- function(df, file, title = "Tabla resumen") {
     y = y_header_bottom + row_h / 2,
     width = table_w,
     height = row_h,
-    gp = gpar(fill = "#10d63b", col = "#10d63b", lwd = 1)
+    gp = gpar(fill = "#4e1da8", col = "#2fe21f", lwd = 1)
   )
 
   # Header cells + text
@@ -113,7 +113,7 @@ save_table_png <- function(df, file, title = "Tabla resumen") {
       y = y_header_bottom + row_h / 2,
       width = (x_rights[j] - x_lefts[j]),
       height = row_h,
-      gp = gpar(fill = NA, col = "#10d63b", lwd = 1)
+      gp = gpar(fill = NA, col = "#2fe21f", lwd = 1)
     )
     grid.text(
       cols[j],

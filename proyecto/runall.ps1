@@ -26,3 +26,13 @@ Write-Host "==> [Fase 4] Visualizacion" -ForegroundColor Cyan
 & "C:\Program Files\R\R-4.4.1\bin\Rscript.exe" "scripts/visualizacion.R"
 if ($LASTEXITCODE -ne 0) { Write-Error "La visualización falló"; exit 1 }
 else { Write-Host "OK: visualizacion finalizada." -ForegroundColor Green }
+
+Write-Host "==> [Fase 5] Modelado" -ForegroundColor Cyan
+& "C:\Program Files\R\R-4.4.1\bin\Rscript.exe" "scripts/modelado.R"
+if ($LASTEXITCODE -ne 0) { Write-Error "El modelado falló"; exit 1 }
+else { Write-Host "OK: modelado finalizado." -ForegroundColor Green }
+
+# Script maestro para ejecutar la simulación, análisis y visualización 
+# del proyecto.
+# Las funciones se encuentran en /src y los scripts en /scripts.
+

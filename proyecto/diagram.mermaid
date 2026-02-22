@@ -1,0 +1,63 @@
+flowchart LR
+
+  %% ======================
+  %% ETAPA I: INFORMACIÓN INICIAL
+  %% ======================
+
+  subgraph Stage_I["Etapa I: Información Inicial"]
+    A1["Datos reales"]
+    A2["Simulación de datos: proyecto/scripts/simulacion.R
+    proyecto/src/simulate_data.R"]
+    A3["Datos sin procesar: proyecto/data/raw/datos_simulados.csv"]
+    A4["Código"]
+    
+    A4 --> A2
+    A1 --> A3
+    A2 --> A3
+  end
+
+  %% ======================
+  %% ETAPA II: PROCESAMIENTO DE DATOS
+  %% ======================
+
+  subgraph Stage_II["Etapa II: Procesamiento de información"]
+    B1["Código"]
+    B2["Limpieza y procesamiento de datos:
+    proyecto/scripts/analisis.R
+    proyecto/src/analyze_data.R"]
+    B3["Datos procesados:
+    proyecto/data/processed/datos_procesados.csv"]
+    
+    B1 --> B2
+    B2 --> B3
+  end
+
+  %% ======================
+  %% ETAPA III: MODELAMIENTO Y VISUALIZACIÓN
+  %% ======================
+
+  subgraph Stage_III["Etapa III: Modelamiento y Visualización de datos"]
+    C1["Código"]
+    C2["Visualización de datos:
+        proyecto/scripts/visualizacion.R
+        proyecto/src/plot_results.R"]
+    C3["Modelamiento estadístico
+        proyecto/scripts/modelado.R
+        proyecto/src/fit_model.R"]
+    C4["Salida de información:
+        proyecto/results/tables
+        proyecto/results/figures"]
+    
+    C1 --> C2
+    C1 --> C3
+    C2 --> C4
+    C3 --> C4
+  end
+
+  %% ======================
+  %% FLUJO ENTRE ETAPAS
+  %% ======================
+
+  A3 --> B1
+  B3 --> C1
+  

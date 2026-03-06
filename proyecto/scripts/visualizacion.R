@@ -5,7 +5,7 @@ if (file.exists("renv/activate.R")) source("renv/activate.R")
 source("src/plot_results.R")
 
 # URL de Zenodo
-zenodo_url <- "https://zenodo.org/records/18856399/files/datos_procesados.csv?download=1"
+zenodo_url <- "https://zenodo.org/records/18856398/files/datos_procesados.csv?download=1"
 
 # ruta local
 local_processed <- file.path("data", "processed", "datos_procesados.csv")

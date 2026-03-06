@@ -5,7 +5,7 @@ if (file.exists("renv/activate.R")) source("renv/activate.R")
 source("src/fit_model.R")
 
 # 1) Definir fuente remota y local
-zenodo_url <- "https://zenodo.org/records/18856399/files/datos_procesados.csv?download=1"
+zenodo_url <- "https://zenodo.org/records/18856398/files/datos_procesados.csv?download=1"
 local_file <- file.path("data", "processed", "datos_procesados.csv")
 
 # 2) Intentar descargar desde Zenodo; si falla, usar local

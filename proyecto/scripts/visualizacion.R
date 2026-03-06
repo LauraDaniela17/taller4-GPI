@@ -4,8 +4,22 @@
 if (file.exists("renv/activate.R")) source("renv/activate.R")
 source("src/plot_results.R")
 
-# Entradas
-in_processed <- file.path("data", "processed", "datos_procesados.csv")
+# URL de Zenodo
+zenodo_url <- "https://zenodo.org/records/18856399/files/datos_procesados.csv?download=1"
+
+# ruta local
+local_processed <- file.path("data", "processed", "datos_procesados.csv")
+
+# intentar Zenodo, si falla usar local
+in_processed <- tryCatch({
+  tf <- tempfile(fileext = ".csv")
+  download.file(zenodo_url, destfile = tf, mode = "wb", quiet = TRUE)
+  message("OK: Datos cargados desde Zenodo.")
+  tf
+}, error = function(e) {
+  message("No se pudo acceder a Zenodo. Usando archivo local.")
+  local_processed
+})
 in_resumen   <- file.path("data", "processed", "resumen_por_grupos.csv")
 
 # Ejecutar con manejo de errores (para que runall.ps1 lo detecte)
